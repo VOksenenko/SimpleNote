@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="scripts/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>Заметки</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <script>
+var input = "<p><textarea placeholder='Введите текст' id = 'text'></textarea></p>";
+var button = "<button onclick = 'public()'>Опубликовать</button>";
+//var paragraph = "<p>Первый параграф</p>";
+
+function public() {
+var text=document.getElementById('text'). value;
+
+var p = document.createElement('p');
+p.innerHTML = text;
+
+var parent = document.getElementsByClassName('ui-content')[0];
+parent.appendChild(p); 
+
+
+}
+
+document.write(input);
+document.write(button);
+//document.write(paragraph);
+
+</script>
+  </div>
+
+  <div data-role="footer">
+    <h1>Made by Vlad</h1>
+  </div>
+</div> 
+
+</body>
+</html>
+

@@ -14,21 +14,21 @@
 
 <div data-role="page" id="pageone">
   <div data-role="header">
-    <h1>Заметки</h1>
+    <h1>Р—Р°РјРµС‚РєРё</h1>
   </div>
 
   <div data-role="main" class="ui-content">
     <script>
-var input = "<p><textarea placeholder='Введите текст' id = 'text'></textarea></p>";
-var button = "<button onclick = 'public()'>Опубликовать</button>";
-//var paragraph = "<p>Первый параграф</p>";
+var input = "<p><textarea placeholder='Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚' id = 'text'></textarea></p>";
+var button = "<button onclick = 'public()'>РћРїСѓР±Р»РёРєРѕРІР°С‚СЊ</button>";
+//var paragraph = "<p>РџРµСЂРІС‹Р№ РїР°СЂР°РіСЂР°С„</p>";
 var notes =[];
 for(note in notes){
 var p = document.createElement('p');
 p.innerHTML = notes[note];
 var parent = document.getElementsByClassName('ui-content')[0];
 parent.appendChild(p); 
-}//конец цикла for
+}//РєРѕРЅРµС† С†РёРєР»Р° for
 
 function public() {
 var text=document.getElementById('text').value;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset = "utf-8">
   <!-- Include meta tag to ensure proper rendering and touch zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Include jQuery Mobile stylesheets -->
@@ -9,47 +10,64 @@
   <script src="scripts/jquery-1.11.3.min.js"></script>
   <!-- Include the jQuery Mobile library -->
   <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+    
+var notes =[];
+for(note in notes){
+var li = document.createElement('li');
+p.innerHTML = notes[note];
+var ul = document.getElementsById('myNotes');
+ul.appendChild(li); 
+}//РєРѕРЅРµС† С†РёРєР»Р° for
+
+var save = function() {
+    var text=document.getElementById('text').value;
+    notes.push(text);
+    var li = document.createElement('li');
+    li.setAttribute("margin-left","0px");
+    li.classList.add("ui-corner-all", "ui-shadow");
+    li.innerHTML = notes[notes.length - 1];
+    var ul = document.getElementById('myNotes');
+    ul.appendChild(li); 
+}
+
+</script>
+<style>
+    ul{
+    
+    }
+
+    li{
+    list-style-type:none;
+    background-color: yellow;
+    padding: .5em;
+    margin: .5em;
+    
+    }
+</style>
 </head>
 <body>
 
 <div data-role="page" id="pageone">
   <div data-role="header">
-    <h1>Заметки</h1>
-  </div>
+    <h1>РњРѕРё Р·Р°РјРµС‚РєРё</h1>
+  </div><!--/Р—Р°РіРѕР»РѕРІРѕРє-->
 
   <div data-role="main" class="ui-content">
-    <script>
-var input = "<p><textarea placeholder='Введите текст' id = 'text'></textarea></p>";
-var button = "<button onclick = 'public()'>Опубликовать</button>";
-//var paragraph = "<p>Первый параграф</p>";
-var notes =[];
-for(note in notes){
-var p = document.createElement('p');
-p.innerHTML = notes[note];
-var parent = document.getElementsByClassName('ui-content')[0];
-parent.appendChild(p); 
-}//конец цикла for
+  <form>
+        <input type="text" id="text" />
+        <input type="button" id="add_button" value="РЎРѕС…СЂР°РЅРёС‚СЊ" onclick="save();">
+   </form>
 
-function public() {
-var text=document.getElementById('text').value;
-notes.push(text);
-var p = document.createElement('p');
-p.innerHTML = notes[notes.length - 1];
-var parent = document.getElementsByClassName('ui-content')[0];
-parent.appendChild(p); 
-}
+    <ul id = "myNotes" >
+    </ul>
 
-document.write(input);
-document.write(button);
-//document.write(paragraph);
-
-</script>
-  </div>
+  </div><!--/РљРѕРЅС‚РµРЅС‚-->
 
   <div data-role="footer">
     <h1>Made by Vlad</h1>
-  </div>
-</div> 
+  </div><!--/Р¤СѓС‚РµСЂ-->
+</div> <!--/РЎС‚СЂР°РЅРёС†Р°-->
 
 </body>
 </html>

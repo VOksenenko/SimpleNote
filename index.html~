@@ -45,9 +45,7 @@ var save = function() {
     
     }
 
-#footer{
-margin-bottom: 0px; !important;
-}
+
 </style>
 </head>
 <body>
@@ -68,7 +66,7 @@ margin-bottom: 0px; !important;
 
   </div><!--/Контент-->
 
-  <div data-role="footer" id="footer">
+  <div data-role="footer" data-position="fixed">
     <h1>Made by Vlad</h1>
   </div><!--/Футер-->
 </div> <!--/Страница-->

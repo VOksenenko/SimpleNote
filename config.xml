@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8">
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+           id = "com.simplenote.vlad"
+      version = "0.1">
+<name>MySimpleNotes</name>
+<description>For making simple notes</description>
+<autor href="http://www.voksenenko.pp.ua"
+      email="voksenenko@gmail.com">Vlad Oksenenko
+</autor>
+<icon src = "images/MySimpleNotes.jpg" height="114" width="114" />
+</widget>
+

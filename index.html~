@@ -33,6 +33,10 @@ var save = function() {
 
 </script>
 <style>
+    ul{
+    padding: 0px;
+    }
+
     li{
     list-style-type:none;
     background-color: yellow;
@@ -40,6 +44,10 @@ var save = function() {
     margin: .5em;
     
     }
+
+#footer{
+margin-bottom: 0px; !important;
+}
 </style>
 </head>
 <body>
@@ -60,7 +68,7 @@ var save = function() {
 
   </div><!--/Контент-->
 
-  <div data-role="footer">
+  <div data-role="footer" id="footer">
     <h1>Made by Vlad</h1>
   </div><!--/Футер-->
 </div> <!--/Страница-->

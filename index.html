@@ -27,7 +27,7 @@ function init(){
         li.innerHTML = notesArray[note];
 
         var ul = document.getElementById('myNotes');
-        ul.appendChild(li); 
+        ul.insertBefore(li, ul.childNodes[0]); 
         }//конец цикла for
 }//конец getNotes
 
@@ -48,7 +48,7 @@ var save = function() {
     li.innerHTML = text;
 
     var ul = document.getElementById('myNotes');
-    ul.appendChild(li);
+    ul.insertBefore(li, ul.childNodes[0]);
     }//end else
 }//end save
 

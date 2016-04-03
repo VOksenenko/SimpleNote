@@ -52,6 +52,11 @@ var save = function() {
     }//end else
 }//end save
 
+var clean = function(){
+localStorage.removeItem("MySimpleNotes");
+location.reload();
+}
+
 </script>
 
 <style>
@@ -80,6 +85,7 @@ var save = function() {
   <form>
         <input type="text" id="text" />
         <input type="button" id="add_button" value="Сохранить" onclick="save();">
+        <input type="button" id="add_button" value="Очистить" onclick="clean();">
    </form>
 
     <ul id = "myNotes" >

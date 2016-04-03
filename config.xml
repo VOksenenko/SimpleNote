@@ -9,5 +9,7 @@
       email="voksenenko@gmail.com">Vlad Oksenenko
 </autor>
 <icon src = "images/MySimpleNotes.jpg" height="114" width="114" />
+<splash src="images/splash.jpg"  width="480" height="480" />
+
 </widget>
 

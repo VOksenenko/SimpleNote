@@ -43,6 +43,7 @@ var save = function() {
     localStorage.setItem("MySimpleNotes", JSON.stringify(notesArray));
     
     var li = document.createElement('li');
+    li.setAttribute("data-icon", "minus");
     li.innerHTML = text;
 
     var ul = document.getElementById('myNotes');
@@ -68,61 +69,64 @@ location.reload();
     background-color: yellow;
     padding: .5em;
     margin: .5em;
-    
     }
+
+    
 </style>
 </head>
 
 
 <body>
-	<div data-role="page" id="pageone" data-theme="a">
-  <div data-role="header" data-theme="a">
-    <h1>Мои заметки</h1>
-  </div><!--/Заголовок-->
+    <div data-role="page" id="pageone" data-theme="a">
+        <div data-role="header" data-theme="a">
+        <h1>Мои заметки</h1>
 
-  <div data-role="main" class="ui-content" data-theme="a">
-      <ul id = "myNotes" >
-    </ul>
-    <input type="button" id="clean_button" value="Очистить" onclick="clean();" >
-  </div><!--/Контент-->
+        </div><!--/Заголовок-->
+
+    <div data-role="main" class="ui-content" data-theme="a">
+      <ul data-role="listview" id = "myNotes" >
+      <li data-icon="minus"><a href="#" onclick="this.remove();">Это пример заметки</a></li>
+      </ul>
+    </div><!--/Контент-->
 
   <div data-role="footer" data-position="fixed" data-theme="a">
     <div data-role="navbar" data-theme="a">
       <ul>
-        <li><a href="#pageone" data-icon="home">Заметки</a></li>
-        <li><a href="#pagetwo" data-icon="plus">Добавить заметку</a></li>
-        
+        <li><a href="#" data-icon="home">Заметки</a></li>
+        <li><a href="#pageTwo" data-transition="pop" data-icon="plus">Добавить</a></li>
+        <li><a data-icon="delete" onclick="clean();">Очистить</a></li>
       </ul>
     </div>
   </div><!--/Футер-->
 </div> <!--/Страница1-->
 
-<div data-role="page" id="pagetwo" data-theme="a">
-  <div data-role="header" data-theme="a">
-    <h1>Добавить заметку</h1>
-  </div><!--/Заголовок-->
+<div data-role="page" id="pageTwo" data-theme="a">
+        <div data-role="header" data-theme="a">
+        <h1>Новая заметка</h1>
+        </div><!--/Заголовок-->
 
-  <div data-role="main" class="ui-content" data-theme="a">
-  <form>
-       <!--<input type="text" id="text" />-->
+    <div data-role="main" class="ui-content" data-theme="a">
+     <form>
+       
         <textarea id="text" placeholder="Введите текст заметки"></textarea>
         <input type="button" id="add_button" value="Сохранить" onclick="save();">
-        
-   </form>
+     </form>
 
     
-
   </div><!--/Контент-->
 
   <div data-role="footer" data-position="fixed" data-theme="a">
     <div data-role="navbar" data-theme="a">
       <ul>
-        <li><a href="#pageone" data-icon="home">Заметки</a></li>
-        <li><a href="#pagetwo" data-icon="plus">Добавить</a></li>
-        
+        <li><a href="#pageone" data-transition="pop" data-icon="home">Заметки</a></li>
+        <li><a href="#" data-transition="pop" data-icon="plus">Добавить</a></li>
+        <li><a data-icon="delete" onclick="clean();">Очистить</a></li>
       </ul>
     </div>
   </div><!--/Футер-->
 </div> <!--/Страница2-->
+
+
+
 </body>
 </html>

@@ -22,6 +22,8 @@ function init(){
     //Выводим содержимое 
     for(note in notesArray){
         var li = document.createElement('li');
+        li.setAttribute("class", "ui-li-static");
+        li.setAttribute("onclick", "this.remove();");
         li.innerHTML = notesArray[note];
 
         var ul = document.getElementById('myNotes');
@@ -43,7 +45,8 @@ var save = function() {
     localStorage.setItem("MySimpleNotes", JSON.stringify(notesArray));
     
     var li = document.createElement('li');
-    li.setAttribute("data-icon", "minus");
+    li.setAttribute("class", "ui-li-static");
+    li.setAttribute("onclick", "this.remove();");
     li.innerHTML = text;
 
     var ul = document.getElementById('myNotes');
@@ -85,7 +88,7 @@ location.reload();
 
     <div data-role="main" class="ui-content" data-theme="a">
       <ul data-role="listview" id = "myNotes" >
-      <li data-icon="minus"><a href="#" onclick="this.remove();">Это пример заметки</a></li>
+      <li  class="ui-li-static" onclick="this.remove();">Пример заметки</li>
       </ul>
     </div><!--/Контент-->
 

@@ -48,6 +48,7 @@ var save = function() {
     li.setAttribute("class", "ui-li-static");
     li.setAttribute("onclick", "this.remove();");
     li.innerHTML = text;
+    document.location.href = "#pageone";
 
     var ul = document.getElementById('myNotes');
     ul.insertBefore(li, ul.childNodes[0]);

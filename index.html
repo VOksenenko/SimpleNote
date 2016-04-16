@@ -1,16 +1,14 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset = "utf-8">
-  <!-- Include meta tag to ensure proper rendering and touch zooming -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Include jQuery Mobile stylesheets -->
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-  <!-- Include the jQuery library -->
-  <script src="scripts/jquery-1.11.3.min.js"></script>
-  <!-- Include the jQuery Mobile library -->
-  <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Theme Download</title>
+	<link rel="stylesheet" href="themes/vladTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<!-- Include jQuery Mobile stylesheets -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
 window.onload = init;
 
@@ -24,6 +22,8 @@ function init(){
     //Выводим содержимое 
     for(note in notesArray){
         var li = document.createElement('li');
+        li.setAttribute("class", "ui-li-static");
+        li.setAttribute("onclick", "this.remove();");
         li.innerHTML = notesArray[note];
 
         var ul = document.getElementById('myNotes');
@@ -45,10 +45,14 @@ var save = function() {
     localStorage.setItem("MySimpleNotes", JSON.stringify(notesArray));
     
     var li = document.createElement('li');
+    li.setAttribute("class", "ui-li-static");
+    li.setAttribute("onclick", "this.remove();");
     li.innerHTML = text;
+    document.location.href = "#pageone";
 
     var ul = document.getElementById('myNotes');
     ul.insertBefore(li, ul.childNodes[0]);
+    document.getElementById('text').value = "";
     }//end else
 }//end save
 
@@ -69,35 +73,64 @@ location.reload();
     background-color: yellow;
     padding: .5em;
     margin: .5em;
-    
     }
 
+    
 </style>
 </head>
+
+
 <body>
+    <div data-role="page" id="pageone" data-theme="a">
+        <div data-role="header" data-theme="a">
+        <h1>Мои заметки</h1>
 
-<div data-role="page" id="pageone">
-  <div data-role="header">
-    <h1>Мои заметки</h1>
-  </div><!--/Заголовок-->
+        </div><!--/Заголовок-->
 
-  <div data-role="main" class="ui-content">
-  <form>
-        <input type="text" id="text" />
+    <div data-role="main" class="ui-content" data-theme="a">
+      <ul data-role="listview" id = "myNotes" >
+      <li  class="ui-li-static" onclick="this.remove();">Пример заметки</li>
+      </ul>
+    </div><!--/Контент-->
+
+  <div data-role="footer" data-position="fixed" data-theme="a">
+    <div data-role="navbar" data-theme="a">
+      <ul>
+        <li><a href="#" data-icon="home">Заметки</a></li>
+        <li><a href="#pageTwo" data-transition="pop" data-icon="plus">Добавить</a></li>
+        <li><a data-icon="delete" onclick="clean();">Очистить</a></li>
+      </ul>
+    </div>
+  </div><!--/Футер-->
+</div> <!--/Страница1-->
+
+<div data-role="page" id="pageTwo" data-theme="a">
+        <div data-role="header" data-theme="a">
+        <h1>Новая заметка</h1>
+        </div><!--/Заголовок-->
+
+    <div data-role="main" class="ui-content" data-theme="a">
+     <form>
+       
+        <textarea id="text" placeholder="Введите текст заметки"></textarea>
         <input type="button" id="add_button" value="Сохранить" onclick="save();">
-        <input type="button" id="add_button" value="Очистить" onclick="clean();">
-   </form>
+     </form>
 
-    <ul id = "myNotes" >
-    </ul>
-
+    
   </div><!--/Контент-->
 
-  <div data-role="footer" data-position="fixed">
-    <h6>Made by Vlad</h6>
+  <div data-role="footer" data-position="fixed" data-theme="a">
+    <div data-role="navbar" data-theme="a">
+      <ul>
+        <li><a href="#pageone" data-transition="pop" data-icon="home">Заметки</a></li>
+        <li><a href="#" data-transition="pop" data-icon="plus">Добавить</a></li>
+        <li><a data-icon="delete" onclick="clean();">Очистить</a></li>
+      </ul>
+    </div>
   </div><!--/Футер-->
-</div> <!--/Страница-->
+</div> <!--/Страница2-->
+
+
 
 </body>
 </html>
-
